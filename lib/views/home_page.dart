@@ -26,6 +26,13 @@ class HomePage extends StatelessWidget {
             isThreeLine: true,
             subtitle: Text(state.quote.quoteAuthor),
             dense: true,
+            trailing: FloatingActionButton(
+              onPressed: () {
+                BlocProvider.of<QuoteBloc>(context).add(FetchQuote());
+              },
+              tooltip: 'Increment',
+              child: Icon(Icons.refresh),
+            ),
           );
         }
         return Center(
